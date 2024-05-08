@@ -1,22 +1,27 @@
 #include <stdio.h>
 int main()
 {
-    int a, b, c;
+    int a, b, c, d;
     printf("Dimmi un numero\n");
     scanf("%d", &a);
-    b = a-1;
+    b = a;
     c = a%b;
-    while(c!=0||b>1)
+    d = 0;
+    while((c!=0)||(b>1))
     {
+         c=a%b;
          b=b-1;
-         c = a%b;
+         if (c==0)
+         {
+            d=d+1;
+         }
     }
-    if(b==1)
+    if(d>1)
     {
-        printf("%d è primo", a);
+        printf("%d non è primo, ha altri %d divisori oltre a 1 e se stesso\n", a, d-1);
     }
     else
     {
-        printf("%dnon è primo", a);
+        printf("%d è primo\n", a);
     }
 }
